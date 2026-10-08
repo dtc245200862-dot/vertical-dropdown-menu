@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Thực hành] Tạo menu dọc - CodeGym</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="demo-container">
+        <div class="demo-title">
+            <h1>Trình Đơn Dọc Đa Cấp (Vertical Dropdown Menu)</h1>
+            <p>Thực hành tạo menu dọc đa cấp với CSS thuần: <code>position: relative</code>, <code>position: absolute</code>, <code>visibility: hidden</code> và <code>li:hover</code>.</p>
+        </div>
+
+        <!-- Vùng Menu chính (id="menu") theo đúng yêu cầu đề bài -->
+        <div id="menu">
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li>
+                    <a href="#courses">
+                        <span>Khóa học</span>
+                        <span class="arrow">&#9658;</span>
+                    </a>
+                    <!-- Menu con cấp 2 -->
+                    <ul>
+                        <li><a href="#java">Lập trình Java</a></li>
+                        <li><a href="#web">Lập trình Web</a></li>
+                        <li><a href="#python">Lập trình Python</a></li>
+                        <li>
+                            <a href="#database">
+                                <span>Cơ sở dữ liệu</span>
+                                <span class="arrow">&#9658;</span>
+                            </a>
+                            <!-- Menu con cấp 3 -->
+                            <ul>
+                                <li><a href="#mysql">MySQL</a></li>
+                                <li><a href="#postgresql">PostgreSQL</a></li>
+                                <li><a href="#mongodb">MongoDB</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#services">
+                        <span>Dịch vụ</span>
+                        <span class="arrow">&#9658;</span>
+                    </a>
+                    <!-- Menu con cấp 2 -->
+                    <ul>
+                        <li><a href="#training">Đào tạo Doanh nghiệp</a></li>
+                        <li><a href="#career">Career Coaching</a></li>
+                        <li><a href="#hiring">Kết nối tuyển dụng</a></li>
+                    </ul>
+                </li>
+                <li><a href="#students">Học viên</a></li>
+                <li><a href="#about">Về chúng tôi</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </div>
+
+        <div class="hint-box">
+            💡 <strong>Hướng dẫn kiểm tra:</strong> Rê chuột vào các mục <em>"Khóa học"</em> hoặc <em>"Dịch vụ"</em> để thấy menu con cấp 2 trượt sang phải. Rê chuột tiếp vào mục <em>"Cơ sở dữ liệu"</em> để kiểm tra menu con cấp 3!
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+/* ========================================================
+   [Thực hành] Tạo menu dọc (Vertical Dropdown Menu)
+   Tác giả: Hồ Quang Huy (DTC245200862)
+   ======================================================== */
+
+/* 1. Thiết lập font chữ và reset căn lề để tránh khác biệt giữa các trình duyệt */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    padding: 40px;
+    color: #333;
+}
+
+/* Vùng bao quanh menu để tạo bố cục trực quan */
+.demo-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.demo-title {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+}
+
+.demo-title h1 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.demo-title p {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* 2. Cấu hình vùng chứa menu (id="menu") */
+#menu {
+    width: 200px;
+    position: relative;
+}
+
+/* Reset danh sách ul */
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Định dạng cho các phần tử li theo hướng dẫn bài thực hành */
+#menu li {
+    list-style: none;           /* Bỏ ký hiệu bullet */
+    position: relative;         /* Định vị tương đối để làm gốc cho submenu tuyệt đối */
+    width: 180px;               /* Chiều rộng phần tử menu */
+    height: 38px;               /* Chiều cao phần tử menu */
+    padding: 0 16px;            /* Khoảng cách đệm trái phải */
+    background-color: #1a1a1a;  /* Màu nền đen */
+    line-height: 38px;          /* Căn giữa dòng chữ theo chiều dọc */
+    cursor: pointer;            /* Con trỏ bàn tay */
+    border-bottom: 1px solid #2d2d2d;
+    transition: background-color 0.25s ease, padding-left 0.25s ease;
+}
+
+/* 4. Định dạng liên kết thẻ <a> bên trong menu */
+#menu li a {
+    text-decoration: none;      /* Bỏ gạch chân */
+    color: #ffffff;             /* Màu chữ trắng */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+}
+
+/* Mũi tên chỉ thị mục có menu con */
+#menu li .arrow {
+    font-size: 11px;
+    color: #888888;
+    transition: transform 0.2s, color 0.2s;
+}
+
+/* 5. Hiệu ứng Hover đổi màu nền khi rê chuột vào mục li */
+#menu li:hover {
+    background-color: #007bff;  /* Đổi sang màu xanh nổi bật */
+    padding-left: 20px;
+}
+
+#menu li:hover > a {
+    color: #ffffff;
+}
+
+#menu li:hover > a .arrow {
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+/* 6. Định dạng danh sách con (Submenu) */
+#menu ul ul {
+    position: absolute;         /* Vị trí tuyệt đối so với thẻ li cha */
+    top: 0;                     /* Căn đỉnh bằng với mục cha */
+    left: 180px;                /* Đặt danh sách con sát cạnh phải của mục cha */
+    visibility: hidden;         /* Ẩn mặc định danh sách con */
+    opacity: 0;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 100;
+}
+
+/* 7. Hiển thị danh sách con khi đưa con trỏ chuột qua mục cha */
+#menu li:hover > ul {
+    visibility: visible;        /* Hiển thị danh sách con */
+    opacity: 1;
+}
+
+/* Gợi ý tương tác phía dưới */
+.hint-box {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #e8f4fd;
+    border-left: 4px solid #007bff;
+    border-radius: 4px;
+    font-size: 13.5px;
+    color: #0c5460;
+}
